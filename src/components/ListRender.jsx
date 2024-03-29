@@ -9,11 +9,12 @@ const ListRender = () => {
         { id: 3, nome: "Scorpion", idade: 201 },
     ])
 
-    const deleteRandom = () => {
-        const randomNumber = Math.floor(Math.random() * 4)
+    const deleteAleatorio = () => {
+        const numeroAleatorio = Math.floor(Math.random() * 4)
 
+        // deletando usando o Previus state ou estado anterior da variavel users
         setUsers((prevUsers) => {
-            return prevUsers.filter((user) => randomNumber !== user.id)
+            return prevUsers.filter((user) => numeroAleatorio !== user.id)
         })
     }
 
@@ -34,7 +35,7 @@ const ListRender = () => {
                     </li>
                 ))}
             </ul>
-            <button onClick={deleteRandom}>Delete random user</button>
+            <button onClick={deleteAleatorio}>Delete aleatorio userio </button>
         </div>
     )
 }

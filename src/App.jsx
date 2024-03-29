@@ -15,7 +15,7 @@ function App() {
         <img src={City} alt='Paisagem' />
       </div>
       <ManageData />
-      <ListRender /> {/* renderizando listas pelas keys */}
+      <ListRender /> {/* Previus state */}
     </>
   )
 }
