@@ -5,6 +5,7 @@ import ConditionalRender from './components/ConditionalRender'
 import ListRender from './components/ListRender'
 import ManageData from './components/ManageData'
 import ShowUserName from './components/ShowUserName'
+import CardDetalhes from './components/CardDetalhes'
 
 function App() {
   const nome = "Samuel"
@@ -23,6 +24,7 @@ function App() {
       <ListRender /> {/* Previus state */}
       <ConditionalRender /> {/* renderização ternária */}
       <ShowUserName nome={nome} sobrenome={sobrenome} />
+      <CardDetalhes marca="VW" km={1000} cor="azul" />
     </>
   )
 }
