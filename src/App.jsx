@@ -24,7 +24,9 @@ function App() {
       <ListRender /> {/* Previus state */}
       <ConditionalRender /> {/* renderização ternária */}
       <ShowUserName nome={nome} sobrenome={sobrenome} />
-      <CardDetalhes marca="VW" km={1000} cor="azul" />
+      <CardDetalhes marca="VW" km={1000} cor="azul" newCarro={false} />
+      <CardDetalhes marca="Ford" km={0} cor="vermelha" newCarro={true} />
+      <CardDetalhes marca="Fiat" km={1400} cor="branco" newCarro={false} />
     </>
   )
 }
