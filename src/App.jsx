@@ -4,7 +4,10 @@ function App() {
 
   return (
     <>
-      <h1>react-do-zero-a-maestria</h1>
+      <h1>Pilares do React</h1>
+      <div>
+        <img src='/img1.jpg' alt='Paisagem' />
+      </div>
     </>
   )
 }
