@@ -12,7 +12,7 @@ function App() {
       <TemplateExpressions />
       <MyComponent />
       <hr />
-      <Eventos />
+      <Eventos /> {/* funções nos eventos*/}
     </>
   )
 }
