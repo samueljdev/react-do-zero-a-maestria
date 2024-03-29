@@ -6,6 +6,7 @@ import ListRender from './components/ListRender'
 import ManageData from './components/ManageData'
 import ShowUserName from './components/ShowUserName'
 import CardDetalhes from './components/CardDetalhes'
+import Fragment from './components/Fragment '
 
 function App() {
   const nome = "Samuel"
@@ -45,6 +46,7 @@ function App() {
           newcarro={car.newcarro}
         />
       ))}
+      <Fragment proFragment={nome} />
     </>
   )
 }
