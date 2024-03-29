@@ -9,6 +9,8 @@ import CardDetalhes from './components/CardDetalhes'
 import Fragment from './components/Fragment '
 import Conteiner from './components/Conteiner'
 import ExecuteFuncao from './components/ExecuteFuncao'
+import Mensagem from './components/Mensagem'
+import ChangeMensagemState from './components/ChangeMensagemState'
 
 function App() {
   const nome = "Samuel"
@@ -24,6 +26,12 @@ function App() {
 
   function enviarMensagem() {
     console.log("Evento do componente pai")
+  }
+
+  const [mensagem, setMensagem] = useState("")
+
+  const handleMensagem = (msg) => {
+    setMensagem(msg)
   }
 
   return (
@@ -57,6 +65,8 @@ function App() {
         <p>Este é o conteúdo </p>
       </Conteiner>
       <ExecuteFuncao myFuncao={enviarMensagem} />
+      <Mensagem msg={mensagem} />
+      <ChangeMensagemState handleMensagem={handleMensagem} />
     </>
   )
 }
