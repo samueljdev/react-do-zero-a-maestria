@@ -7,6 +7,7 @@ import ManageData from './components/ManageData'
 import ShowUserName from './components/ShowUserName'
 import CardDetalhes from './components/CardDetalhes'
 import Fragment from './components/Fragment '
+import Conteiner from './components/Conteiner'
 
 function App() {
   const nome = "Samuel"
@@ -47,6 +48,9 @@ function App() {
         />
       ))}
       <Fragment proFragment={nome} />
+      <Conteiner meuValor={`"Dados"`}>
+        <p>Este é o conteúdo </p>
+      </Conteiner>
     </>
   )
 }
