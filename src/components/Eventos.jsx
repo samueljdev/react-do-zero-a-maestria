@@ -7,6 +7,18 @@ const Eventos = () => {
         console.log("Ativou o evento!")
     }
 
+    const funcaoRenderizacao = (x) => {
+        if (x) {
+            return (
+                <h3>Renderizando isso!</h3>
+            )
+        } else {
+            return (
+                <h3>Também posso renderizar isso!</h3>
+            )
+        }
+    }
+
     return (
         <div>
             <button onClick={handleMyEvent()}>Clique aqui!</button> {/* Ativa apenas uma vez quando é renderizado */}
@@ -27,6 +39,8 @@ const Eventos = () => {
                     Clica aqui, por favor!
                 </button>
             </div>
+            {funcaoRenderizacao(true)}
+            {funcaoRenderizacao(false)}
             <hr />
         </div>
     )
