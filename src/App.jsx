@@ -17,7 +17,7 @@ function App() {
       </div>
       <ManageData />
       <ListRender /> {/* Previus state */}
-      <ConditionalRender />
+      <ConditionalRender /> {/* renderização ternária */}
     </>
   )
 }
