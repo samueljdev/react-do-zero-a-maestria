@@ -8,6 +8,7 @@ import ShowUserName from './components/ShowUserName'
 import CardDetalhes from './components/CardDetalhes'
 import Fragment from './components/Fragment '
 import Conteiner from './components/Conteiner'
+import ExecuteFuncao from './components/ExecuteFuncao'
 
 function App() {
   const nome = "Samuel"
@@ -20,6 +21,10 @@ function App() {
     { id: 4, marca: "Honda", km: 0, cor: "Preto", newcarro: true },
   ]
   console.log(carros)
+
+  function enviarMensagem() {
+    console.log("Evento do componente pai")
+  }
 
   return (
     <>
@@ -51,6 +56,7 @@ function App() {
       <Conteiner meuValor={`"Dados"`}>
         <p>Este é o conteúdo </p>
       </Conteiner>
+      <ExecuteFuncao myFuncao={enviarMensagem} />
     </>
   )
 }
