@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import MyComponent from './components/MyComponent'
+import Title from './components/Title'
 
 function App() {
   const inline = 15
@@ -41,6 +42,9 @@ function App() {
       </h2>
       {/* ABORDAGEM USADA EM PROJETOS REAIS */}
       <h2 className={redTitle ? "red-title" : "title"}>Este Titulo vai ter classe dinamica</h2>
+      {/* ABORDAGEM USADA EM PROJETOS REAIS */}
+      <Title />
+      <h2 className="myTitle">Testando...</h2> {/* não recebe o css da classe styles.myTitle, pois a mesma esta restrigida ao escopo*/}
     </>
   )
 }
