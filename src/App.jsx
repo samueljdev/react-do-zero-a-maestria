@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import './App.css'
 import MyComponent from './components/MyComponent'
 
 function App() {
+  const inline = 15
+  const [nome] = useState("samuel")
 
   return (
     <>
@@ -18,6 +21,23 @@ function App() {
       }}>
         Este elemento foi estilizado de forma inline
       </p>
+
+      <h2 style={inline < 20 ? ({ color: "orangered" }) : ({ color: "purple" })}>
+        CSS dinamico
+      </h2>
+
+      <h2 style={inline > 20 ? ({ color: "orangered" }) : ({ color: "purple" })}>
+        CSS dinamico
+      </h2>
+
+      <h2 style={
+        nome === "samuel" ?
+          ({ color: "greenyellow", backgroundColor: "#000" })
+          :
+          (null)}
+      >
+        Teste nome
+      </h2>
     </>
   )
 }
