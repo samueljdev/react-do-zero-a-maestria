@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1>Formulários</h1>
-      <Myform /> {/* Label envolvendo input(ABORDAGEM SUGERIDA NA DOCUMENTACAO) */}
+      <Myform /> {/* manipulando dados d input */}
     </>
   )
 }
