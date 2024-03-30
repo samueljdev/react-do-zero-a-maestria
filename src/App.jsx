@@ -1,10 +1,12 @@
 import './App.css'
+import Myform from './components/Myform'
 
 function App() {
 
   return (
     <>
-      <h1>react-do-zero-a-maestria</h1>
+      <h1>Formulários</h1>
+      <Myform />
     </>
   )
 }
