@@ -5,6 +5,7 @@ import MyComponent from './components/MyComponent'
 function App() {
   const inline = 15
   const [nome] = useState("samuel")
+  const redTitle = true
 
   return (
     <>
@@ -38,6 +39,8 @@ function App() {
       >
         Teste nome
       </h2>
+      {/* ABORDAGEM USADA EM PROJETOS REAIS */}
+      <h2 className={redTitle ? "red-title" : "title"}>Este Titulo vai ter classe dinamica</h2>
     </>
   )
 }
