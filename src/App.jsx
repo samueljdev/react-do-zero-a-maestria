@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <h1>react-do-zero-a-maestria</h1>
+      <h1>Lista de Produtos</h1>
     </>
   )
 }
