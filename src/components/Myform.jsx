@@ -10,6 +10,7 @@ const Myform = () => {
     }
 
     console.log(nome)
+    console.log(email)
 
     return (
         <>
@@ -20,13 +21,18 @@ const Myform = () => {
                         type="text"
                         nome="nome"
                         placeholder="Digite o seu nome"
-                        onChange={handleNome}
+                        onChange={handleNome} // criando função externa para executar o estado
                     />
                 </div>
                 {/* Label envolvendo input(ABORDAGEM SUGERIDA NA DOCUMENTACAO) */}
                 <label>
                     <span>Email</span>
-                    <input type="email" nome="email" placeholder="Digite o seu email" />
+                    <input
+                        type="email"
+                        nome="email"
+                        placeholder="Digite o seu email"
+                        onChange={(e) => setEmail(e.target.value)}  // alterando o state inline
+                    />
                 </label>
                 <input type="submit" value="Enviar" />
             </form>
