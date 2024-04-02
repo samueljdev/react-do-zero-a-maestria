@@ -9,12 +9,18 @@ const Myform = () => {
         setNome(e.target.value)
     }
 
-    console.log(nome)
-    console.log(email)
+    // processando o envio de dados
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log("enviando o formulario")
+
+        console.log("nome", nome)
+        console.log("email", email)
+    }
 
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit}> {/* atributo onSubmit para pega evento do formulario */}
                 <div>
                     <label htmlFor="nome">Nome:</label>
                     <input

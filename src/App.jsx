@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1>Formulários</h1>
-      <Myform /> {/*alterando o state inline */}
+      <Myform /> {/* enviando o form */}
     </>
   )
 }
