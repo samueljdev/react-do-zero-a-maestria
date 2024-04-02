@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1>Formulários</h1>
-      <Myform /> {/* enviando o form */}
+      <Myform user={{ nome: "Josias", email: "josias@gmail.com" }} /> {/* controle de inputs */}
     </>
   )
 }

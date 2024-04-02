@@ -1,9 +1,9 @@
 import "./Myform.css"
 import React, { useState } from 'react'
 
-const Myform = () => {
-    const [nome, setNome] = useState()
-    const [email, setEmail] = useState()
+const Myform = ({ user, }) => {
+    const [nome, setNome] = useState(user ? user.nome : "") // definindo estado inicial
+    const [email, setEmail] = useState(user ? user.email : "") // definindo estado inicial
 
     const handleNome = (e) => {
         setNome(e.target.value)
@@ -28,6 +28,7 @@ const Myform = () => {
                         nome="nome"
                         placeholder="Digite o seu nome"
                         onChange={handleNome} // criando função externa para executar o estado
+                        value={nome}
                     />
                 </div>
                 {/* Label envolvendo input(ABORDAGEM SUGERIDA NA DOCUMENTACAO) */}
@@ -38,6 +39,7 @@ const Myform = () => {
                         nome="email"
                         placeholder="Digite o seu email"
                         onChange={(e) => setEmail(e.target.value)}  // alterando o state inline
+                        value={email}
                     />
                 </label>
                 <input type="submit" value="Enviar" />
