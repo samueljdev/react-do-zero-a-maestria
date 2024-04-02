@@ -16,6 +16,10 @@ const Myform = ({ user, }) => {
 
         console.log("nome", nome)
         console.log("email", email)
+
+        // 07 - limpando formularios
+        setNome("")
+        setEmail("")
     }
 
     return (
