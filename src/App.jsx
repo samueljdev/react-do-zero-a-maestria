@@ -35,6 +35,12 @@ function App() {
       },
       body: JSON.stringify(product)
     })
+
+    // carregamento dinamico
+    const addedProduct = await requisicao.json()
+    setProducts((prevProducts) => [...prevProducts, addedProduct]) // spreed operator
+    setName("")
+    setPrice("")
   }
 
   return (

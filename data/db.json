@@ -24,6 +24,16 @@
       "id": "da57",
       "name": "Guarda Chuva",
       "price": "30.0"
+    },
+    {
+      "id": "3d1d",
+      "name": "Tênis esportivo",
+      "price": "200"
+    },
+    {
+      "id": "ef66",
+      "name": "Society Nike",
+      "price": "180"
     }
   ]
 }
