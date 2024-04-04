@@ -8,6 +8,9 @@ export const UseFetch = (url) => {
     const [method, setMethod] = useState(null)
     const [callFetch, setCallFetch] = useState(false)
 
+    // Estado de loading
+    const [loading, setLoading] = useState(false)
+
     const httpConfig = (data, method) => {
         if (method == "POST") {
             setConfig({
@@ -26,12 +29,14 @@ export const UseFetch = (url) => {
 
         // Define uma função assíncrona para buscar dados da URL fornecida
         const fetchData = async () => {
+            setLoading(true)
             // Faz uma requisição para a URL
             const request = await fetch(url)
             // Converte a resposta da requisição para JSON
             const json = await request.json()
             // Atualiza a variável de estado data com os dados JSON
             setData(json)
+            setLoading(false)
         }
 
         // Chama a função fetchData
@@ -52,5 +57,5 @@ export const UseFetch = (url) => {
     }, [config, method, url])
 
     // Retorna um objeto com a variável de estado data
-    return { data, httpConfig }
+    return { data, httpConfig, loading }
 }

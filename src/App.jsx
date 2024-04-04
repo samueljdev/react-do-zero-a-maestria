@@ -9,7 +9,7 @@ function App() {
   const [price, setPrice] = useState("")
 
   // renomeando a variavel data para items
-  const { data: items, httpConfig } = UseFetch(url)
+  const { data: items, httpConfig, loading } = UseFetch(url)
 
   // função que vai enviar um formulario
   const handleSubmit = async (e) => {
@@ -29,13 +29,17 @@ function App() {
   return (
     <div className='App'>
       <h1>Lista de Produtos</h1>
-      <ul>
-        {items && items.map((product) => (
-          <li key={product.id}>
-            {product.name} - {product.price}
-          </li>
-        ))}
-      </ul>
+      {/* Estado de loading se for true carrega o paragrafo */}
+      {loading && <p>Carregando dados...</p>}
+      {!loading && (
+        <ul>
+          {items && items.map((product) => (
+            <li key={product.id}>
+              {product.name} - {product.price}
+            </li>
+          ))}
+        </ul>
+      )}
       <div className="add-product">
         <form onSubmit={handleSubmit}>
           <label>
