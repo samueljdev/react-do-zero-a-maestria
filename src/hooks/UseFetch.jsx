@@ -7,6 +7,7 @@ export const UseFetch = (url) => {
     const [config, setConfig] = useState(null)
     const [method, setMethod] = useState(null)
     const [callFetch, setCallFetch] = useState(false)
+    const [error, setError] = useState(null)
 
     // Estado de loading
     const [loading, setLoading] = useState(false)
@@ -30,12 +31,17 @@ export const UseFetch = (url) => {
         // Define uma função assíncrona para buscar dados da URL fornecida
         const fetchData = async () => {
             setLoading(true)
-            // Faz uma requisição para a URL
-            const request = await fetch(url)
-            // Converte a resposta da requisição para JSON
-            const json = await request.json()
-            // Atualiza a variável de estado data com os dados JSON
-            setData(json)
+            try {
+                // Faz uma requisição para a URL
+                const request = await fetch(url)
+                // Converte a resposta da requisição para JSON
+                const json = await request.json()
+                // Atualiza a variável de estado data com os dados JSON
+                setData(json)
+            } catch (error) {
+                console.log(error.message)
+                setError("Houve algum erro ao carregar os dados!")
+            }
             setLoading(false)
         }
 
@@ -57,5 +63,5 @@ export const UseFetch = (url) => {
     }, [config, method, url])
 
     // Retorna um objeto com a variável de estado data
-    return { data, httpConfig, loading }
+    return { data, httpConfig, loading, error }
 }
