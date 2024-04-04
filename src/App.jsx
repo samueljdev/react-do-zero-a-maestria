@@ -5,12 +5,11 @@ import { UseFetch } from './hooks/UseFetch'
 const url = "http://localhost:3000/products"
 
 function App() {
-  const [setProducts] = useState([])
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")
 
   // renomeando a variavel data para items
-  const { data: items } = UseFetch(url)
+  const { data: items, httpConfig } = UseFetch(url)
 
   // função que vai enviar um formulario
   const handleSubmit = async (e) => {
@@ -21,17 +20,8 @@ function App() {
       price: price,
     }
 
-    const requisicao = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "aplication/json"
-      },
-      body: JSON.stringify(product)
-    })
+    httpConfig(product, "POST")
 
-    // carregamento dinamico
-    const addedProduct = await requisicao.json()
-    setProducts((prevProducts) => [...prevProducts, addedProduct]) // spreed operator
     setName("")
     setPrice("")
   }

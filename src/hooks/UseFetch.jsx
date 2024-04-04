@@ -4,6 +4,22 @@ import React, { useEffect, useState } from 'react'
 export const UseFetch = (url) => {
     // Utiliza o hook useState para criar uma variável de estado chamada data
     const [data, setData] = useState(null)
+    const [config, setConfig] = useState(null)
+    const [method, setMethod] = useState(null)
+    const [callFetch, setCallFetch] = useState(false)
+
+    const httpConfig = (data, method) => {
+        if (method == "POST") {
+            setConfig({
+                method,
+                Headers: {
+                    "Content-Type": "aplication/json"
+                },
+                body: JSON.stringify(data)
+            })
+            setMethod(method)
+        }
+    }
 
     // Utiliza o hook useEffect para executar uma função sempre que a URL fornecida muda
     useEffect(() => {
@@ -21,8 +37,20 @@ export const UseFetch = (url) => {
         // Chama a função fetchData
         fetchData()
         // A função dentro de useEffect será chamada novamente se a URL mudar
-    }, [url])
+    }, [url, callFetch])
+
+    useEffect(() => {
+        const httpRequest = async () => {
+            if (method === "POST") {
+                let fetchOptions = [url, config]
+                const resquisicao = await fetch(...fetchOptions)
+                const json = await resquisicao.json()
+                setCallFetch(json)
+            }
+        }
+        httpRequest()
+    }, [config, method, url])
 
     // Retorna um objeto com a variável de estado data
-    return { data }
+    return { data, httpConfig }
 }
