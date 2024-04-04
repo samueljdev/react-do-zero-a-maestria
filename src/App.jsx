@@ -1,23 +1,16 @@
 import './App.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { UseFetch } from './hooks/UseFetch'
 
 const url = "http://localhost:3000/products"
 
 function App() {
-  const [products, setProducts] = useState([])
+  const [setProducts] = useState([])
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")
 
-  // resgatando os dados
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(url)
-      const data = await res.json()
-      setProducts(data)
-    }
-
-    fetchData()
-  }, [])
+  // renomeando a variavel data para items
+  const { data: items } = UseFetch(url)
 
   // função que vai enviar um formulario
   const handleSubmit = async (e) => {
@@ -47,7 +40,7 @@ function App() {
     <div className='App'>
       <h1>Lista de Produtos</h1>
       <ul>
-        {products.map((product) => (
+        {items && items.map((product) => (
           <li key={product.id}>
             {product.name} - {product.price}
           </li>
