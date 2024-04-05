@@ -3,6 +3,7 @@ import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
 import Navibar from './components/Navibar'
+import Product from './pages/Product'
 
 function App() {
 
@@ -12,8 +13,10 @@ function App() {
       <BrowserRouter >
         <Navibar /> {/* como a Navibar tem elementos do react-router-dom ela fica abaixo*/}
         <Routes>
-          <Route path="/" element={<Home />} /> {/* carregando dados de produtos no Home */}
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          {/* rota dinamica */}
+          <Route path="/products/:id" element={<Product />} />
         </Routes>
       </BrowserRouter>
     </>
