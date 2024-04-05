@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter >
         <Navibar /> {/* como a Navibar tem elementos do react-router-dom ela fica abaixo*/}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} /> {/* carregando dados de produtos no Home */}
           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
