@@ -11,6 +11,8 @@ export const UseFetch = (url) => {
 
     // Estado de loading
     const [loading, setLoading] = useState(false)
+    
+    const [itemId, setItemId] = useState(null);
 
     const httpConfig = (data, method) => {
         if (method == "POST") {
@@ -21,7 +23,19 @@ export const UseFetch = (url) => {
                 },
                 body: JSON.stringify(data)
             })
+
             setMethod(method)
+
+        } else if (method === "DELETE") {
+            setConfig({
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+
+            setMethod(method)
+            setItemId(data)
         }
     }
 
@@ -57,7 +71,14 @@ export const UseFetch = (url) => {
                 const resquisicao = await fetch(...fetchOptions)
                 const json = await resquisicao.json()
                 setCallFetch(json)
+
+            } else if (method === "DELETE") {
+                const deleteUrl = `${url}/${itemId}`
+                const resquisicao = await fetch(deleteUrl, config)
+                const json = await resquisicao.json()
+                setCallFetch(json)
             }
+
         }
         httpRequest()
     }, [config, method, url])
