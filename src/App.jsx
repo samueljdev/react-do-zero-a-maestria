@@ -11,12 +11,11 @@ function App() {
     <>
       <h1>07-React-router</h1>
       <BrowserRouter >
-        <Navibar /> {/* como a Navibar tem elementos do react-router-dom ela fica abaixo*/}
+        <Navibar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* rota dinamica */}
-          <Route path="/products/:id" element={<Product />} />
+          <Route path="/products/:id" element={<Product />} /> {/* carregamento dinamico de dados */}
         </Routes>
       </BrowserRouter>
     </>
