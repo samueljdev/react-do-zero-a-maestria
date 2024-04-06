@@ -13,7 +13,7 @@ function App() {
     <>
       <h1>07-React-router</h1>
       <BrowserRouter >
-        <Navibar />
+        <Navibar /> {/* link ativo */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
