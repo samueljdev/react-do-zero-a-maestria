@@ -3,12 +3,13 @@ import "./Home.css"
 import { UseFetch } from '../hooks/UseFetch'
 import { Link } from 'react-router-dom'
 import { CounterContext } from '../context/CounterContext'
+import ChangeCounter from '../components/ChangeCounter'
 
 const Home = () => {
     const url = "http://localhost:3000/products"
     const { data: items, error } = UseFetch(url)
 
-    const { counter } = useContext(CounterContext)
+    const { counter } = useContext(CounterContext) // alterando contexto da aplicação
 
     return (
         <div>
@@ -27,6 +28,7 @@ const Home = () => {
                 <hr />
                 <h3>Contador do Context API</h3>
                 <p>Valor do contador: {counter}</p>
+                <ChangeCounter />
                 <hr />
             </div>
         </div>

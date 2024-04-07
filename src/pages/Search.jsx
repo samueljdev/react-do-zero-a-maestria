@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useSearchParams, Link } from "react-router-dom"
 import { UseFetch } from "../hooks/UseFetch"
+import { CounterContext } from '../context/CounterContext'
+import ChangeCounter from '../components/ChangeCounter'
 
 const Search = () => {
     const [searchParams] = useSearchParams()
@@ -8,6 +10,8 @@ const Search = () => {
     const url = "http://localhost:3000/products?" + searchParams
 
     const { data: items } = UseFetch(url)
+
+    const { counter } = useContext(CounterContext) // alterando contexto da aplicação
 
     return (
         <div>
@@ -22,6 +26,13 @@ const Search = () => {
                         </li>
                     ))}
             </ul>
+            <div>
+                <hr />
+                <h3>Contador do Context API</h3>
+                <p>Valor do contador: {counter}</p>
+                <ChangeCounter />
+                <hr />
+            </div>
         </div>
     )
 }

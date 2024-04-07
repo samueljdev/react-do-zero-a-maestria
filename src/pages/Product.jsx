@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { UseFetch } from '../hooks/UseFetch'
+import ChangeCounter from '../components/ChangeCounter'
+import { CounterContext } from '../context/CounterContext'
 
 const Product = () => {
     const { id } = useParams()
@@ -10,6 +12,8 @@ const Product = () => {
 
     const { data: product, loading, error } = UseFetch(url)
     console.log(product)
+
+    const { counter } = useContext(CounterContext) // alterando contexto da aplicação
 
     return (
         <>
@@ -23,6 +27,13 @@ const Product = () => {
                     <Link to={`/products/${product.id}/info`}>Mais informações</Link> {/* nested router */}
                 </div>
             )}
+            <div>
+                <hr />
+                <h3>Contador do Context API</h3>
+                <p>Valor do contador: {counter}</p>
+                <ChangeCounter />
+                <hr />
+            </div>
         </>
     )
 }
