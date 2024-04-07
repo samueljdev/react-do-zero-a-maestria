@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <h1>07-React-router</h1>
+      <h1>07-React-router</h1> {/* criando contexto */}
       <BrowserRouter >
         <Navibar />
         <SearchForm />
