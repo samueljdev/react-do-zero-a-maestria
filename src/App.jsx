@@ -6,6 +6,8 @@ import Navibar from './components/Navibar'
 import Product from './pages/Product'
 import Info from './pages/Info'
 import NotFound from './pages/NotFound'
+import SearchForm from './components/SearchForm'
+import Search from './pages/Search'
 
 function App() {
 
@@ -13,12 +15,14 @@ function App() {
     <>
       <h1>07-React-router</h1>
       <BrowserRouter >
-        <Navibar /> {/* link ativo */}
+        <Navibar />
+        <SearchForm />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products/:id" element={<Product />} /> {/* carregamento dinamico de dados */}
           <Route path="/products/:id/info" element={<Info />} /> {/* nested router */}
+          <Route path="/search" element={<Search />} />
           <Route path="*" element={<NotFound />} /> {/* no match route */}
         </Routes>
       </BrowserRouter>

@@ -5,31 +5,31 @@ export const UseFetch = (url) => {
     const [config, setConfig] = useState(null)
     const [method, setMethod] = useState(null)
     const [callFetch, setCallFetch] = useState(false)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const [itemId, setItemId] = useState(null)
 
     const httpConfig = (data, method) => {
         if (method == "POST") {
             setConfig({
-                method,
+                method: "POST",
                 Headers: {
-                    "Content-Type": "aplication/json"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
             })
 
-            setMethod(method)
+            setMethod("POST")
 
         } else if (method === "DELETE") {
             setConfig({
                 method: "DELETE",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/json"
                 }
             })
 
-            setMethod(method)
+            setMethod("DELETE")
             setItemId(data)
         }
     }
@@ -41,6 +41,8 @@ export const UseFetch = (url) => {
                 const request = await fetch(url)
                 const json = await request.json()
                 setData(json)
+                setMethod(null)
+                setError(null)
             } catch (error) {
                 console.log(error.message)
                 setError("Houve algum erro ao carregar os dados!")
@@ -55,6 +57,7 @@ export const UseFetch = (url) => {
     useEffect(() => {
         const httpRequest = async () => {
             if (method === "POST") {
+                setLoading(true)
                 let fetchOptions = [url, config]
                 const resquisicao = await fetch(...fetchOptions)
                 const json = await resquisicao.json()
@@ -66,7 +69,6 @@ export const UseFetch = (url) => {
                 const json = await resquisicao.json()
                 setCallFetch(json)
             }
-
         }
 
         httpRequest()
