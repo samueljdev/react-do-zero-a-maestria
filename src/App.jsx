@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -23,6 +23,7 @@ function App() {
           <Route path="/products/:id" element={<Product />} /> {/* carregamento dinamico de dados */}
           <Route path="/products/:id/info" element={<Info />} /> {/* nested router */}
           <Route path="/search" element={<Search />} />
+          <Route path="/company" element={<Navigate to="/about" />} />
           <Route path="*" element={<NotFound />} /> {/* no match route */}
         </Routes>
       </BrowserRouter>
