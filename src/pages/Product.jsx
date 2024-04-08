@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { UseFetch } from '../hooks/UseFetch'
 import ChangeCounter from '../components/ChangeCounter'
-import { CounterContext } from '../context/CounterContext'
+import { UseCounterContext } from '../hooks/UseCounterContext'
 
 const Product = () => {
     const { id } = useParams()
@@ -13,7 +13,7 @@ const Product = () => {
     const { data: product, loading, error } = UseFetch(url)
     console.log(product)
 
-    const { counter } = useContext(CounterContext) // alterando contexto da aplicação
+    const { counter } = UseCounterContext()
 
     return (
         <>

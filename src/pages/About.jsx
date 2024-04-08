@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { CounterContext } from '../context/CounterContext'
+import React from 'react'
 import "./About.css"
 import ChangeCounter from '../components/ChangeCounter'
+import { UseCounterContext } from '../hooks/UseCounterContext'
 
 const About = () => {
-    const { counter } = useContext(CounterContext) // alterando contexto da aplicação
+    const { counter } = UseCounterContext()
 
     return (
         <div>

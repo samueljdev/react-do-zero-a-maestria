@@ -1,15 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import "./Home.css"
 import { UseFetch } from '../hooks/UseFetch'
 import { Link } from 'react-router-dom'
-import { CounterContext } from '../context/CounterContext'
 import ChangeCounter from '../components/ChangeCounter'
+import { UseCounterContext } from '../hooks/UseCounterContext'
 
 const Home = () => {
     const url = "http://localhost:3000/products"
     const { data: items, error } = UseFetch(url)
 
-    const { counter } = useContext(CounterContext) // alterando contexto da aplicação
+    const { counter } = UseCounterContext()
 
     return (
         <div>
