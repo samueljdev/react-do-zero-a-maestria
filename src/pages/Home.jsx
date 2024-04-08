@@ -11,11 +11,19 @@ const Home = () => {
     const { data: items, error } = UseFetch(url)
 
     const { counter } = UseCounterContext()
-    const { color } = UseTitleColorContext()
+    const { color, dispatch } = UseTitleColorContext()
+
+    const setTitleColor = (color) => {
+        dispatch({ type: color })
+    }
 
     return (
         <div>
             <h1 style={{ color: color }}>Produtos</h1>
+            <div>
+                <button onClick={() => setTitleColor("RED")}>Vermelho</button> &nbsp;&nbsp;
+                <button onClick={() => setTitleColor("BLUE")}>Azul</button>
+            </div>
             {error && <p>{error}</p>}
             <ul className="products">
                 {items && items.map((item) => (
