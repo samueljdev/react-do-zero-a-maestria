@@ -4,16 +4,18 @@ import { UseFetch } from '../hooks/UseFetch'
 import { Link } from 'react-router-dom'
 import ChangeCounter from '../components/ChangeCounter'
 import { UseCounterContext } from '../hooks/UseCounterContext'
+import { UseTitleColorContext } from '../hooks/UseTitleColorContext'
 
 const Home = () => {
     const url = "http://localhost:3000/products"
     const { data: items, error } = UseFetch(url)
 
     const { counter } = UseCounterContext()
+    const { color } = UseTitleColorContext()
 
     return (
         <div>
-            <h1>Produtos</h1>
+            <h1 style={{ color: color }}>Produtos</h1>
             {error && <p>{error}</p>}
             <ul className="products">
                 {items && items.map((item) => (
